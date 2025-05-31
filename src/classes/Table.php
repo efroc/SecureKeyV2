@@ -1,4 +1,38 @@
 <?php
+
+    /** Classe Table qui représente un tableau de Triple
+     *  Exemple : array((entité1, username1, password1), 
+     *                  (entité2, username2, password2)
+     *                 )
+     */ 
+    class Table {
+        private array $myTable;
+
+        public function __construct(array $newTable = array()) {
+            $this->myTable = $newTable;
+        }
+
+        /*=========== Getters Setters ============*/
+        public function getTable() : array {
+            return $this->myTable;
+        }
+
+        public function setTable(array $newTable) {
+            $this->myTable = $newTable;
+        }
+
+        public function toString() : string {
+            $result = "";
+            for($i = 0; $i < count($this->getTable()); $i++) {
+                $result = $result .$i. "- " .$this->getTable()[$i]->toString(). "\n";
+            }
+            return $result;
+        }
+    }
+
+    /** Classe Triple qui représente un triplet de string
+     *  Exemple : (entité, username, password)
+     */ 
     class Triple {
         private string $first;
         private string $second;

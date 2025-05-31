@@ -8,6 +8,14 @@
     <link rel='stylesheet' type='text/css' media='screen' href='src/style/style.css'>
 </head>
 <body>
-    
+    <?php
+        include "src/classes/Table.php";
+        $myTable = new Table();
+        $elem1 = new Triple("entité1", "username1", "password1");
+        $elem2 = new Triple("entité2", "username2", "password2");
+        $myTable[] = $elem1;
+        $myTable[] = $elem2;
+        echo($myTable->toString());
+    ?>
 </body>
 </html>>
