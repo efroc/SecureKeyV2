@@ -13,9 +13,16 @@
         $myTable = new Table();
         $elem1 = new Triple("entité1", "username1", "password1");
         $elem2 = new Triple("entité2", "username2", "password2");
-        $myTable[] = $elem1;
-        $myTable[] = $elem2;
-        echo($myTable->toString());
+        $elem3 = new Triple("entité2", "username2", "password2");
+        echo("bool1");
+        echo($elem1->equalsTo($elem2));
+        echo("bool2");
+        echo($elem2->equalsTo($elem3));
+        echo("add");
+        $myTable->add($elem1);
+        $myTable->add($elem2);
+        echo($myTable->printTable());
+        
     ?>
 </body>
-</html>>
+</html>

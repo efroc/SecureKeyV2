@@ -21,12 +21,28 @@
             $this->myTable = $newTable;
         }
 
-        public function toString() : string {
-            $result = "";
-            for($i = 0; $i < count($this->getTable()); $i++) {
-                $result = $result .$i. "- " .$this->getTable()[$i]->toString(). "\n";
+        /*============== Fonctions ================*/
+        public function printTable() {
+            foreach($this->getTable() as $elem) {
+                echo($elem->toString(). "\n");
             }
-            return $result;
+        }
+
+        public function add(Triple $newTriple) {
+            $table = $this->getTable();   // récupère une copie
+            $table[] = $newTriple;        // ajoute le triple à la copie
+            $this->setTable($table);     // remet le tableau mis à jour dans l'objet
+        }
+
+        public function get(int $indice) {
+            if($indice < 0 || $indice > count($this->getTable())-1) {
+                return -1;
+            }
+            return $this->getTable()[$indice];
+        }
+
+        public function size() {
+            return count($this->getTable());
         }
     }
 
@@ -72,6 +88,10 @@
         /*============== Fonctions ================*/
         public function toString() : String {
             return "("  .$this->getFirst(). " , " .$this->getSecond(). " , " .$this->getThird(). ")";
+        }
+
+        public function equalsTo(Triple $t2) : bool {
+            return ($this->getFirst() === $t2->getFirst() && $this->getSecond() === $t2->getSecond() && $this->getThird() === $t2->getThird());
         }
     }
 ?>
