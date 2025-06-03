@@ -5,24 +5,35 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>SecureKeyV2</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='src/style/style.css'>
+    <link rel='stylesheet' type='text/css' href='src/style/style.css'>
 </head>
 <body>
     <?php
-        include "src/classes/Table.php";
-        $myTable = new Table();
-        $elem1 = new Triple("entité1", "username1", "password1");
-        $elem2 = new Triple("entité2", "username2", "password2");
-        $elem3 = new Triple("entité2", "username2", "password2");
-        echo("bool1");
-        echo($elem1->equalsTo($elem2));
-        echo("bool2");
-        echo($elem2->equalsTo($elem3));
-        echo("add");
-        $myTable->add($elem1);
-        $myTable->add($elem2);
-        echo($myTable->printTable());
-        
+       //init 
     ?>
+    
+<!--=========== HEADER =============-->
+    <header>
+        <a href="#menu" onclick="showMenu()"><img class="icon-menu" src="images/menu-icon.png"></a>
+        <h1>SecureKey</h1>
+    </header>
+
+<!--============ MAIN ==============-->
+    <main>
+        <div class="menu">
+
+        </div>
+        <div class="content">
+
+        </div>
+    </main>
+
+
+
+
+    <?php
+        //end
+    ?>
+    <script src="src/script/script.js"></script>
 </body>
 </html>
