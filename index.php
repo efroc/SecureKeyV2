@@ -14,14 +14,16 @@
     
 <!--=========== HEADER =============-->
     <header>
-        <a href="#menu" onclick="showMenu()"><img class="icon-menu" src="images/menu-icon.png"></a>
+        <img class="icon-menu" onclick="showMenu()" src="images/menu-icon.png"></a>
         <h1>SecureKey</h1>
     </header>
 
 <!--============ MAIN ==============-->
     <main>
         <div class="menu">
-
+            
+        
+            <button class="language-button" onclick="changeLanguage()"><span>FR</span></button>
         </div>
         <div class="content">
 

@@ -1,9 +1,16 @@
 function showMenu() {
-    var menu = document.querySelectorAll('.menu');
-    var content = document.querySelectorAll('.content');
-    if(menu[0].style.display === 'flex') {
-        menu.forEach(p => p.style.display = 'none');
+    const menu = document.querySelector('.menu');
+    const display = getComputedStyle(menu).display;
+
+    if (display === 'flex') {
+        menu.style.display = 'none';
     } else {
-        menu.forEach(p => p.style.display = 'flex');
+        menu.style.display = 'flex';
     }
 }
+
+//TODO
+function changeLanguage() {
+
+}
+
