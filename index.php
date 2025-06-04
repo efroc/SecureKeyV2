@@ -20,12 +20,21 @@
 
 <!--============ MAIN ==============-->
     <main>
+        <!----- menu ----->
         <div class="menu">
             
         
-            <button class="language-button" onclick="changeLanguage()"><span>FR</span></button>
+            <button id="language-button" class="language-button" onclick="changeLanguage()"><span class="fr">FR</span><span class="en">EN</span></button>
         </div>
+
+        <!--- contenu ---->
         <div class="content">
+
+        </div>
+        
+        <!-- formulaire -->
+        <div class="formulaire">
+
 
         </div>
     </main>
