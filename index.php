@@ -9,13 +9,18 @@
 </head>
 <body>
     <?php
-       //init 
+       include("src/classes/Table.php");
+       include("src/classes/Traitement.php");
+       // variables
+       $lecture = new Lecture("data.txt");
+       $table = new Table($lecture->readToTable());
     ?>
     
 <!--=========== HEADER =============-->
     <header>
         <img class="icon-menu" onclick="showMenu()" src="images/menu-icon.png"></a>
         <h1>SecureKey</h1>
+        <img class="icon-help" onclick="window.location.href='pages/help.php';" src="images/help-icon.png"></a>
     </header>
 
 <!--============ MAIN ==============-->
@@ -29,7 +34,40 @@
 
         <!--- contenu ---->
         <div class="content">
-
+            <table>
+                <thead>
+                    <tr>
+                        <th>Entité</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        foreach($table->getTable() as $triplet) {
+                    ?>
+                    <tr>
+                        <th>
+                    <?php
+                            echo($triplet->getFirst());
+                    ?>
+                        </th>
+                        <th>
+                    <?php
+                            echo($triplet->getSecond());
+                    ?>
+                        </th>
+                        <th>
+                    <?php
+                            echo($triplet->getThird());
+                    ?>
+                        </th>
+                    </tr>
+                    <?php
+                        }
+                    ?>
+                </tbody>
+            </table>
         </div>
         
         <!-- formulaire -->
