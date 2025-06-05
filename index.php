@@ -26,7 +26,12 @@
     <main>
         <!----- menu ----->
         <div class="menu">
-            
+            <div class="actions-list">
+                <div class="add-action">
+
+                </div>
+
+            </div>
         
             <button id="language-button" class="language-button" onclick="changeLanguage()"><span class="fr">FR</span><span class="en">EN</span></button>
         </div>
