@@ -24,7 +24,7 @@
         /*============== Fonctions ================*/
         public function printTable() {
             foreach($this->getTable() as $elem) {
-                echo($elem->toString(). "\n");
+                echo($elem->toString());
             }
         }
 
@@ -46,43 +46,41 @@
         }
     }
 
-    /** Classe Triple qui représente un triplet de string
-     *  Exemple : (entité, username, password)
+    /** Classe Triple qui représente un tableau comprenant 3 strings
+     *  Exemple : [entité, username, password]
      */ 
     class Triple {
-        private string $first;
-        private string $second;
-        private string $third;
+        private $triple = array();
 
         public function __construct(string $fst = "", string $snd = "", string $thd = "") {
-            $this->first = $fst;
-            $this->second = $snd;
-            $this->third = $thd;
+            $this->triple[] = $fst;
+            $this->triple[] = $snd;
+            $this->triple[] = $thd;
         }
 
         /*=========== Getters Setters ============*/ 
         public function getFirst() : string {
-            return $this->first;
+            return $this->triple[0];
         }
 
         public function getSecond() : string {
-            return $this->second;
+            return $this->triple[1];
         }
 
         public function getThird() : string {
-            return $this->third;
+            return $this->triple[2];
         }
 
         public function setFirst(string $newFirst) {
-            $this->first = $newFirst;
+            $this->triple[0] = $newFirst;
         }
 
         public function setSecond(string $newSecond) {
-            $this->second = $newSecond;
+            $this->triple[1] = $newSecond;
         }
 
         public function setThird(string $newThird) {
-            $this->third = $newThird;
+            $this->triple[2] = $newThird;
         }
 
         /*============== Fonctions ================*/

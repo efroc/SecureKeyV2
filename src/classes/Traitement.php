@@ -1,5 +1,5 @@
 <?php
-    include("Table.php");
+    include_once("Table.php");
 
     class Lecture {
         private $content;
@@ -35,28 +35,30 @@
                     $word = $word. $myString[$i];
                 }
             }
+            if (strlen($word) !== 0) {
+                $myArray[] = $word;
+            }
             return $myArray;
         }
 
         public function readToTable() : array {
             $myArray = array();
-            if($this->getContent() === false || strlen($this->getContent()) === 0) {
+            $tripletsString = $this->stringToSubstring($this->getContent(), "#");
+            if(empty($tripletsString)) {
                 return $myArray;
             }
-            $triples = $this->stringToSubstring($this->getContent(), "#");
-
-            for($i = 0; $i < count($triples); $i++) {
-                $triple = $this->stringToSubstring($triples[$i], ";");
-                if(count($triple) > 3) {
+            foreach($tripletsString as $triple) {
+                $tripleStr = $this->stringToSubstring($triple, ";");
+                if(count($tripleStr) > 3 || count($tripleStr) <  3) {
                     echo("Fichier corrompu !");
                 } else {
-                    $newTriple = new Triple($triple[0], $triple[1], $triple[2]);
+                    $newTriple = new Triple($tripleStr[0], $tripleStr[1], $tripleStr[2]);
                     $myArray[] = $newTriple;
                 }
             }
+
             return $myArray;
         }
-
     }
 
     

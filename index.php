@@ -9,11 +9,10 @@
 </head>
 <body>
     <?php
-       include("src/classes/Table.php");
-       include("src/classes/Traitement.php");
-       // variables
-       $lecture = new Lecture("data.txt");
-       $table = new Table($lecture->readToTable());
+        include_once("src/classes/Table.php");
+        include_once("src/classes/Traitement.php");
+        $lecture = new Lecture("data.txt");
+        $table = new Table($lecture->readToTable());
     ?>
     
 <!--=========== HEADER =============-->
@@ -34,40 +33,9 @@
 
         <!--- contenu ---->
         <div class="content">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Entité</th>
-                        <th>Username</th>
-                        <th>Password</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                        foreach($table->getTable() as $triplet) {
-                    ?>
-                    <tr>
-                        <th>
-                    <?php
-                            echo($triplet->getFirst());
-                    ?>
-                        </th>
-                        <th>
-                    <?php
-                            echo($triplet->getSecond());
-                    ?>
-                        </th>
-                        <th>
-                    <?php
-                            echo($triplet->getThird());
-                    ?>
-                        </th>
-                    </tr>
-                    <?php
-                        }
-                    ?>
-                </tbody>
-            </table>
+            <?php
+                $table->printTable();
+            ?>
         </div>
         
         <!-- formulaire -->
