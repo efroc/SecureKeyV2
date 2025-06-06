@@ -19,27 +19,19 @@ header {
     min-height: 80px;
     height: 80px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-color: #1A1A1A; 
     overflow: auto;
 }
 
-.icon-menu, .icon-previous {
+.icon-help, .icon-previous {
     display: block;
+    position: absolute;
     height: 60px;
     width: 60px;
-    margin-left: 10px;
-    cursor: pointer;
-    background-color: #333333;
-    border-radius: 50%;
-}
-
-.icon-help {
-    display: block;
-    height: 60px;
-    width: 60px;
-    margin-right: 10px;
+    left: 10px;
+    top: 10px;
     cursor: pointer;
     background-color: #333333;
     border-radius: 50%;
@@ -59,7 +51,7 @@ main {
 
 /************** MENU ************/
 .menu {
-    display: none;
+    display: flex;
     flex-direction: column;
     min-width: 250px;
     height: 100%;
@@ -72,7 +64,26 @@ main {
     flex-direction: column;
     width: 100%;
     height: 100%;
-    border: 2px solid blue;
+}
+
+.actions-list > div {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.actions-list > div img {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.actions-list > div span {
+    color: white;
 }
 
 .language-button {
@@ -101,17 +112,62 @@ span {
 /************* CONTENT ************/
 .content {
     display: flex;
+    justify-content: center;
+    align-items: flex-start;
     min-width: 700px;
     width: 100%;
 }
 
+table {
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table, th, tr, td {
+    border: 2px solid #1A1A1A;
+    border-collapse: collapse;
+}
+
+tr td, tr th {
+    text-align: center; 
+}
+
+tr td:nth-of-type(1) {
+    min-width: 50px;
+}
+
+tr td:nth-of-type(2), tr td:nth-of-type(3), tr td:nth-of-type(4) {
+    min-width: 200px;
+}
+
+tr td:nth-of-type(5) {
+    display: flex;
+    min-width: 150px;
+    justify-content: center;
+}
+
+td img {
+    display: block;
+    margin-right: 10px;
+    height: 30px;
+    width: 30px;
+}
+
 /********** FORMULAIRE ************/
 .formulaire {
-    display: none;
+    display: flex;
     flex-direction: column;
     min-width: 250px;
     height: 100%;
     border-top: 2px solid white;
     background-color: #1A1A1A;
+}
+
+
+/*===================== AUTRES =======================*/
+hr {
+    width: 100%;
+    margin-top: 10px;
+    border: 1px solid white;
 }
 

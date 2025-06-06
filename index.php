@@ -17,9 +17,8 @@
     
 <!--=========== HEADER =============-->
     <header>
-        <img class="icon-menu" onclick="showMenu()" src="images/menu-icon.png"></a>
-        <h1>SecureKey</h1>
         <img class="icon-help" onclick="window.location.href='pages/help.php';" src="images/help-icon.png"></a>
+        <h1>SecureKey</h1>
     </header>
 
 <!--============ MAIN ==============-->
@@ -28,7 +27,14 @@
         <div class="menu">
             <div class="actions-list">
                 <div class="add-action">
-
+                    <img class="icon-add" src="images/add-icon.png">
+                    <span class="fr">Ajouter une connexion</span><span class="en">Add a connection</span>
+                </div>
+                <!-- ajouter d'autres actions-->
+                <hr>
+                <div class="view-action">
+                    <img class="icon-eye" src="images/see-icon.png">
+                    <span class="fr">Voir les mots de passe</span><span class="en">See the passwords</span>
                 </div>
 
             </div>
@@ -38,9 +44,29 @@
 
         <!--- contenu ---->
         <div class="content">
-            <?php
-                $table->printTable();
-            ?>
+            <table>
+                <thead>
+                    <tr>
+                        <th><span>Index</span></th>
+                        <th><span class="fr">Nom/Entité</span><span class="en">Name/Entity</span></th>
+                        <th><span class="fr">Nom d'utilisateur/E-Mail</span><span class="en">Username/E-Mail</span></th>
+                        <th><span class="fr">Mot de passe</span><span class="en">Password</span></th>
+                        <th><span class="fr">Opérations</span><span class="en">Operations</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>Nom1</td>
+                        <td>Username1</td>
+                        <td>Password1</td>
+                        <td>
+                            <img class="icon-edit" src="images/edit-icon.png">
+                            <img class="icon-trash" src="images/trash-icon.png">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         
         <!-- formulaire -->
