@@ -11,6 +11,7 @@
     <?php
         include_once("src/classes/Table.php");
         include_once("src/classes/Traitement.php");
+        include_once("src/classes/Password.php");
         $lecture = new Lecture("data.txt");
         $table = new Table($lecture->readToTable());
     ?>
