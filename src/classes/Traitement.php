@@ -42,21 +42,24 @@
         }
 
         public function readToTable() : array {
-            $myArray = array();
-            $tripletsString = $this->stringToSubstring($this->getContent(), "#");
-            if(empty($tripletsString)) {
+            $myArray = [];
+            $quadrupleString = $this->stringToSubstring($this->getContent(), "#");
+            if(empty($quadrupleString)) {
                 return $myArray;
             }
-            foreach($tripletsString as $triple) {
-                $tripleStr = $this->stringToSubstring($triple, ";");
-                if(count($tripleStr) > 3 || count($tripleStr) <  3) {
+            foreach($quadrupleString as $quadruple) {
+                $elem = $this->stringToSubstring($quadruple, ";");
+                if(count($elem) > 4 || count($elem) < 4) {
                     echo("Fichier corrompu !");
                 } else {
-                    $newTriple = new Triple($tripleStr[0], $tripleStr[1], $tripleStr[2]);
-                    $myArray[] = $newTriple;
+                    $myArray[] = [
+                        "service"  => $elem[0],
+                        "username"     => $elem[1],
+                        "password" => $elem[2],
+                        "note"     => $elem[3]
+                    ];
                 }
             }
-
             return $myArray;
         }
     }

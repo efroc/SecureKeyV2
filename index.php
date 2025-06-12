@@ -52,7 +52,9 @@
                         <th><span class="fr">Nom/Entité</span><span class="en">Name/Entity</span></th>
                         <th><span class="fr">Nom d'utilisateur/E-Mail</span><span class="en">Username/E-Mail</span></th>
                         <th><span class="fr">Mot de passe</span><span class="en">Password</span></th>
+                        <th><span>Note</span></th>
                         <th><span class="fr">Opérations</span><span class="en">Operations</span></th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -61,6 +63,7 @@
                         <td>Nom1</td>
                         <td>Username1</td>
                         <td>Password1</td>
+                        <td>blablabla1</td>
                         <td>
                             <img class="icon-edit" src="images/edit-icon.png">
                             <img class="icon-trash" src="images/trash-icon.png">
