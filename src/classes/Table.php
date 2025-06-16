@@ -1,11 +1,10 @@
 <?php
 
-    /** Classe Table qui représente une table associative de quadruplet
+    /** Classe Table qui représente une table associative de triplets
      *  Exemple : [
      *              "service"  => "Université"
      *              "username" => "efroc"
      *              "password" => "..."
-     *              "note"     => "..."
      *            ]
      */ 
     class Table {
@@ -21,12 +20,11 @@
         }
 
         /*============== Fonctions ================*/
-        public function ajouter($service, $user, $password, $note = "") {
+        public function ajouter($service, $user, $password) {
             $this->getTable()[] = [
                 "service"  => $service,
                 "username"     => $user,
-                "password" => $password,
-                "note"     => $note
+                "password" => $password
             ];
         }
 
