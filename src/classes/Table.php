@@ -8,7 +8,11 @@
      *            ]
      */ 
     class Table {
-        private $myTable = [];
+        private $myTable;
+
+        public function __construct() {
+            $this->myTable = [];
+        }
 
         /*=========== Getters Setters ============*/
         public function getTable() : array {
@@ -21,7 +25,7 @@
 
         /*============== Fonctions ================*/
         public function ajouter($service, $user, $password) {
-            $this->getTable()[] = [
+            $this->myTable[] = [
                 "service"  => $service,
                 "username"     => $user,
                 "password" => $password

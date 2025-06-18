@@ -89,6 +89,7 @@ div[class="table"] {
     width: 100%;
     height: 100%;
     font-size: 18px;
+    border: 1px solid darkgrey;
 }
 
 /****** premiere ligne du tableau ******/
@@ -109,8 +110,8 @@ div[class="table"] {
 }
 
 /* toutes les colonnnes du tableau sauf la dernière */
-.table > div > div:nth-of-type(1), .table > div > div:nth-of-type(2), .table > div > div:nth-of-type(3) {
-    width: 250px;
+.htable > div:nth-of-type(1), .htable > div:nth-of-type(2), .htable > div:nth-of-type(3) {
+    width: 300px;
 }
 
 /* dernière colonne du tableau */
@@ -135,7 +136,7 @@ div[class="table"] {
 }
 
 /****** toutes les lignes du tableau ******/
-.table > div div {
+.htable > div, .btable > div {
     display: flex;
     align-items: center;
 }
@@ -144,9 +145,39 @@ div[class="table"] {
     display: flex;
     flex-direction: column;
     height: 100%;
-    border: 2px solid blue;
 }
 
+.ltable {
+    height: 40px;
+    display: flex;
+}
+
+.ltable > div:nth-of-type(1), .ltable > div:nth-of-type(2), .ltable > div:nth-of-type(3) {
+    width: 300px;
+}
+
+.ltable > div:nth-of-type(4) {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex: 1;
+}
+
+.ltable div span {
+    margin-left: 10px;
+}
+
+.ltable div:not(:last-child) {
+    border-right: 2px solid white;
+}
+
+.ltable {
+    border-bottom: 1px solid darkgrey;
+}
+
+.ltable:hover {
+    background-color: darkgrey;
+}
 
 /*=========================== HEADER ========================*/
 /*
