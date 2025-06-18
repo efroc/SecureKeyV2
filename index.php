@@ -11,9 +11,11 @@
     <?php
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
-        include_once("src/classes/Table.php");
+        require_once("src/classes/Table.php");
         $table = new Table();
+        //include("pages/form.php");
         $table->ajouter("service1", "username1", "password1");
+        $table->ajouter("service2", "username2", "password2");
     ?>
     <main id="main">
         <div class="head" id="head">
@@ -38,12 +40,11 @@
                 <div><span class="fr">Nom d'utilisateur</span></div>
                 <div><span class="fr">Mot de passe</span></div>
                 <div>
-                    <button class="add-button" onclick="window.location.href='pages/form.php';">+</button>
+                    <button class="add-button" onclick="window.location.href='pages/form.php?action=add';">+</button>
                     <span class="fr">Ajouter à la liste</span>
                 </div>
             </div>
             <div class="btable" id="btable">
-                <!-- remplir avec les données (+ boutons edit et supp à chaque ligne)-->
                 <?php
                     foreach($table->getTable() as $key => $elem) {
                 ?>
@@ -52,7 +53,8 @@
                     <div><span><?php echo($elem["username"]); ?></span></div>
                     <div><span><?php echo($elem["password"]); ?></span></div>
                     <div>
-                        <span>ajouter les boutons</span>
+                        <button class="edit-button" onclick="window.location.href='pages/form.php?action=edit&id=<?= $key ?>';"><img class="edit-icon" src="images/edit-icon.png"></button><span>Modifier</span>
+                        <button class="supp-button" onclick="window.location.href='pages/form.php?action=supp&id=<?= $key ?>';"><img class="trash-icon" src="images/trash-icon.png"></button><span>Supprimer</span>
                     </div>
                 </div>
                 <?php
