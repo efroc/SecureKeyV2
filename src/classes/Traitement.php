@@ -5,7 +5,7 @@
         private $content;
 
         public function __construct(string $nomFichier) {
-            $this->content = file_get_contents(__DIR__ . '\\..\\..\\save\\' .$nomFichier);
+            $this->content = file_get_contents(__DIR__ . '/../../save/' .$nomFichier);
         }
 
         public function getContent() {
@@ -43,20 +43,17 @@
 
         public function readToTable() : array {
             $myArray = [];
-            $quadrupleString = $this->stringToSubstring($this->getContent(), "#");
-            if(empty($quadrupleString)) {
+            $tripleString = $this->stringToSubstring($this->getContent(), "#");
+            if(empty($tripleString)) {
                 return $myArray;
             }
-            foreach($quadrupleString as $quadruple) {
-                $elem = $this->stringToSubstring($quadruple, ";");
-                if(count($elem) > 4 || count($elem) < 4) {
-                    echo("Fichier corrompu !");
-                } else {
+            foreach($tripleString as $triple) {
+                $elem = $this->stringToSubstring($triple, ";");
+                if(count($elem) === 3) {
                     $myArray[] = [
                         "service"  => $elem[0],
                         "username"     => $elem[1],
-                        "password" => $elem[2],
-                        "note"     => $elem[3]
+                        "password" => $elem[2]
                     ];
                 }
             }

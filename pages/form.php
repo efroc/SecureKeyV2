@@ -9,7 +9,23 @@
 </head>
 <body>
     <?php
-        // à compléter
+        session_start();
+        require_once("../src/classes/Table.php");
+        if (isset($_SESSION['table'])) {
+            $table = $_SESSION['table'];
+        } 
+        if(isset($_POST['add-submit']) && isset($_POST['id'])) {
+            $id = $_GET['id'];
+            $table->supprimer($id);
+            $_SESSION['table'] = $table;
+            header("Location: ../index.php");
+            echo("redirection");
+            exit;
+        }   
+        if(isset($_POST['add-cancel'])) {
+            header("Location: ../index.php");
+        } 
+        
     ?>
     <main id="main">
         <div class="head" id="head">
@@ -40,11 +56,12 @@
                         break;
                     case 'supp':
             ?>
-            <form class="supp-form">
+            <form action="" class="supp-form" method="post">
                 <span>Etes-vous sûr de vouloir supprimer cette connexion ?</span>
                 <div>
-                    <button>Annuler</button>
-                    <button>Confirmer</button>
+                    <input type="hidden" name="id" value="<?php echo($_GET['id']); ?>">
+                    <input type="submit" name="add-cancel" value="Annuler">
+                    <input type="submit" name="add-submit" value="Confirmer">
                 </div>
             </form>
             <?php

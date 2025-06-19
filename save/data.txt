@@ -1,1 +1,1 @@
-entity;username;password;note#entity2;usrname2;password2;note2#
+gmail;alice;pass123#github;bob;gitpass456#outlook;charlie;mailpass789#facebook;david;fb1234#twitter;eve;twtpass567#linkedin;frank;lnkpass890#banking;grace;secure987#slack;heidi;slack321#spotify;ivan;music654#dropbox;judy;dropbox987#

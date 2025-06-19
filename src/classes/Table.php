@@ -8,7 +8,7 @@
      *            ]
      */ 
     class Table {
-        private $myTable;
+        private array $myTable;
 
         public function __construct() {
             $this->myTable = [];
@@ -32,8 +32,15 @@
             ];
         }
 
+        public function supprimer($indice) {
+            if(isset($this->myTable[$indice])) {
+                unset($this->myTable[$indice]);
+                $this->myTable = array_values($this->myTable);
+            }
+        }
+
         public function get(int $index) {
-            if(isset($this->donnees[$index])) {
+            if(isset($this->getTable()[$index])) {
                 return $this->getTable()[$index];
             } else {
                 return null;

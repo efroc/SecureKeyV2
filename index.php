@@ -9,13 +9,16 @@
 </head>
 <body>
     <?php
+        session_start();
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
+
+        require_once("src/classes/Traitement.php");
         require_once("src/classes/Table.php");
         $table = new Table();
-        //include("pages/form.php");
-        $table->ajouter("service1", "username1", "password1");
-        $table->ajouter("service2", "username2", "password2");
+        $lecture = new Lecture("data.txt");
+        $table->setTable($lecture->readToTable());
+        $_SESSION['table'] = $table;
     ?>
     <main id="main">
         <div class="head" id="head">
@@ -61,6 +64,7 @@
                     }
                 ?>
             </div>
+            <?php print_r($table);?>
         </div>
     </main>
     <script src="src/script/script.js"></script>
