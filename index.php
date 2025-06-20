@@ -1,72 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>SecureKeyV2</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' href='src/style/style.css'>
-</head>
-<body>
-    <?php
-        session_start();
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
+<?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
 
-        require_once("src/classes/Traitement.php");
-        require_once("src/classes/Table.php");
-        $table = new Table();
-        $lecture = new Lecture("data.txt");
-        $table->setTable($lecture->readToTable());
-        $_SESSION['table'] = $table;
-    ?>
-    <main id="main">
-        <div class="head" id="head">
-            <div>
-                <img class="head-icon" src="images/key-icon.png">
-                <h1 class="head-title">SecureKey.</h1>
-            </div>
-            <img class="parameters-icon" onclick="window.location.href='pages/settings.php';" src="images/parametres-icon.png">
-        </div>
-        <div class="parameters" id="parameters">
-            <span class="parameters-title">Connexions de User</span>
-        </div>
-        <div class="research" id="research">
-            <form class="search-bar">
-                <input type="text" id="search-input" placeholder="Rechercher...">
-                <button type="submit">🔍</button>
-            </form>
-        </div>
-        <div class="table">
-            <div class="htable">
-                <div><span class="fr">Nom</span></div>
-                <div><span class="fr">Nom d'utilisateur</span></div>
-                <div><span class="fr">Mot de passe</span></div>
-                <div>
-                    <button class="add-button" onclick="window.location.href='pages/form.php?action=add';">+</button>
-                    <span class="fr">Ajouter à la liste</span>
-                </div>
-            </div>
-            <div class="btable" id="btable">
-                <?php
-                    foreach($table->getTable() as $key => $elem) {
-                ?>
-                <div class="ltable">
-                    <div><span><?php echo($elem["service"]);  ?></span></div>
-                    <div><span><?php echo($elem["username"]); ?></span></div>
-                    <div><span><?php echo($elem["password"]); ?></span></div>
-                    <div>
-                        <button class="edit-button" onclick="window.location.href='pages/form.php?action=edit&id=<?= $key ?>';"><img class="edit-icon" src="images/edit-icon.png"></button><span>Modifier</span>
-                        <button class="supp-button" onclick="window.location.href='pages/form.php?action=supp&id=<?= $key ?>';"><img class="trash-icon" src="images/trash-icon.png"></button><span>Supprimer</span>
-                    </div>
-                </div>
-                <?php
-                    }
-                ?>
-            </div>
-            <?php print_r($table);?>
-        </div>
-    </main>
-    <script src="src/script/script.js"></script>
-</body>
-</html>
+    require_once("src/classes/Traitement.php");
+    $traitement = new Traitement("data.txt");
+
+    echo($traitement->getPath());
+    echo("<br>");
+    echo($traitement->read());
+    echo("<br>");
+
+    $traitement->createFile("data2.txt");
+    $traitement->write("hello");
+
+    echo($traitement->getPath());
+    echo("<br>");
+    echo($traitement->read());
+    echo("<br>");
+    $traitement->add("its me");
+    echo("<br>");
+    echo($traitement->read());
+
+
+
+?>
