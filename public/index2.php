@@ -13,12 +13,7 @@
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
 
-        require_once("src/classes/Traitement.php");
-        require_once("src/classes/Table.php");
-        $table = new Table();
-        $lecture = new Lecture("data.txt");
-        $table->setTable($lecture->readToTable());
-        $_SESSION['table'] = $table;
+       
     ?>
     <main id="main">
         <div class="head" id="head">
@@ -48,23 +43,8 @@
                 </div>
             </div>
             <div class="btable" id="btable">
-                <?php
-                    foreach($table->getTable() as $key => $elem) {
-                ?>
-                <div class="ltable">
-                    <div><span><?php echo($elem["service"]);  ?></span></div>
-                    <div><span><?php echo($elem["username"]); ?></span></div>
-                    <div><span><?php echo($elem["password"]); ?></span></div>
-                    <div>
-                        <button class="edit-button" onclick="window.location.href='pages/form.php?action=edit&id=<?= $key ?>';"><img class="edit-icon" src="images/edit-icon.png"></button><span>Modifier</span>
-                        <button class="supp-button" onclick="window.location.href='pages/form.php?action=supp&id=<?= $key ?>';"><img class="trash-icon" src="images/trash-icon.png"></button><span>Supprimer</span>
-                    </div>
-                </div>
-                <?php
-                    }
-                ?>
+               
             </div>
-            <?php print_r($table);?>
         </div>
     </main>
     <script src="src/script/script.js"></script>
