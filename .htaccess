@@ -1,2 +1,17 @@
 RewriteEngine On
-RewriteRule ^$ public/ [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php?r=$1 [QSA,L]
+
+# Accès refusé 
+<Files "config.php">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "README.txt">
+    Order allow,deny
+    Deny from all
+</Files>
+
+
+Options -Indexes
